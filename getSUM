@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+
+// Function to calculate the sum of elements in a vector
+int getSum(const std::vector<int>& vec) {
+    int sum = 0;
+    for (int num : vec) {
+        sum += num;
+    }
+    return sum;
+}
+
+// Function to calculate the average of elements in a vector
+double getAverage(const std::vector<int>& vec) {
+    if (vec.empty()) {
+        return 0.0; // To handle division by zero if the vector is empty
+    }
+
+    int sum = getSum(vec);
+    return static_cast<double>(sum) / vec.size();
+}
+
+int main() {
+    std::vector<int> numbers = {10, 20, 30, 40, 50};
+
+    int sum = getSum(numbers);
+    double average = getAverage(numbers);
+
+    std::cout << "Sum: " << sum << std::endl;
+    std::cout << "Average: " << average << std::endl;
+
+    return 0;
+}
